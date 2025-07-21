@@ -1,3 +1,38 @@
-<script src="js/jquery.js"></script>
-<script src="js/libs.js"></script>
+<!-- <script src="js/jquery.js"></script>
+<script src="js/libs.js"></script> -->
 <script src="js/app.js"></script>
+
+<script>
+    const header = document.querySelector('.header');
+    const topbar = document.querySelector('.topbar');
+
+    const logo = document.getElementById('logo-img');
+    const iconSearch = document.getElementById('icon-search');
+    const iconUser = document.getElementById('icon-user');
+    const iconCart = document.getElementById('icon-cart');
+
+    function updateHeaderAndTopbar() {
+        const scrollY = window.scrollY;
+
+        if (scrollY > 40) {
+            header.classList.add('header--scrolled');
+            topbar.classList.add('topbar--hidden');
+
+            logo.src = 'img/logo_light.svg';
+            iconSearch.src = 'img/search_light.svg';
+            iconUser.src = 'img/user_light.svg';
+            iconCart.src = 'img/cart_light.svg';
+        } else {
+            header.classList.remove('header--scrolled');
+            topbar.classList.remove('topbar--hidden');
+
+            logo.src = 'img/logo.svg';
+            iconSearch.src = 'img/search.svg';
+            iconUser.src = 'img/user.svg';
+            iconCart.src = 'img/cart.svg';
+        }
+    }
+
+    window.addEventListener('scroll', updateHeaderAndTopbar);
+    window.addEventListener('load', updateHeaderAndTopbar);
+</script>
